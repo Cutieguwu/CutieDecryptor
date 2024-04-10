@@ -5,8 +5,6 @@ Basic Substitution Cypher decryption script.
 
 ## Notes:
 
-#### 
-
 Due to a limitation with Replit, everything must be contained in root dir.
 "parser" clashes with stdlib parser, therefore all libraries are prefixed with "Cutie".
 
