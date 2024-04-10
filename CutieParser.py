@@ -4,8 +4,8 @@
 #
 # -*- coding:utf-8 -*-
 # @Title: CutieDecryptor
-# @Author: Cutieguwu | Olivia Brooks
-# @Collaborator: JellieJayde | Jayde Paquette
+# @Author: JellieJayde | Jayde Paquette
+# @Collaborator: Cutieguwu | Olivia Brooks
 # @Email: owen.brooks77@gmail.com | obroo2@ocdsb.ca
 # @Description: Parses an encrypted file for patterns and characteristics.
 #
