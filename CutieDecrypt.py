@@ -15,3 +15,26 @@
 # @Last Modified by: Cutieguwu | Olivia Brooks
 # ----------------------------------------------------------
 
+def decrypt(dataEncoded: str, key: str):
+    """
+    Decrypts a string encoded using a substitution cypher based on the provided key.\n
+    Characters closer to index 0 in `key` are more common in the English language.
+    """
+
+    dataDecrypted = ""
+
+    # Convert key to a list.
+    keyDecrypt = [].append(k for k in key)
+    keyEnglish = [].append(k for k in "etaoinshrdlcumwfgypbvkjxqz")                         # Lewand's order of english characters; most to least common.
+
+    for c in dataEncoded:
+        is_found = False
+
+        while not is_found:
+            for k in keyDecrypt:
+                if c == k:                                                                  # Character found in decryption key.
+                    dataDecrypted = dataDecrypted + keyEnglish[keyDecrypt.index(k)]
+                    is_found = True
+    
+    return dataDecrypted
+
