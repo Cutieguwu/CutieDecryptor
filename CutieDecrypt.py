@@ -31,7 +31,7 @@ def decrypt(dataEncoded: str, keyDecrypt: str):
         if c != " ":
             while not is_found:
                 for k in keyDecrypt:
-                    if c == k:                                                                  # Character found in decryption key.
+                    if c == k:                                                          # Character found in decryption key.
                         dataDecrypted = dataDecrypted + keyEnglish[keyDecrypt.index(k)]
                         is_found = True
         else:
