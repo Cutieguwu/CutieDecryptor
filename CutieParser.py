@@ -9,9 +9,9 @@
 # @Email: owen.brooks77@gmail.com | obroo2@ocdsb.ca
 # @Description: Parses an encrypted file for patterns and characteristics.
 #
-# @Script: parser.py
+# @Script: CutieParser.py
 # @Date Created: 10 Apr, 2024
-# @Last Modified: 10 Apr, 2024
+# @Last Modified: 11 Apr, 2024
 # @Last Modified by: Cutieguwu | Olivia Brooks
 
 # ----------------------------------------------------------
