@@ -28,13 +28,17 @@ def decrypt(dataEncoded: str, keyDecrypt: str):
     for c in dataEncoded:
         is_found = False
 
-        while not is_found:
-            for k in keyDecrypt:
-                if c == k:                                                                  # Character found in decryption key.
-                    dataDecrypted = dataDecrypted + keyEnglish[keyDecrypt.index(k)]
-                    is_found = True
-    
+        if c != " ":
+            while not is_found:
+                for k in keyDecrypt:
+                    if c == k:                                                                  # Character found in decryption key.
+                        dataDecrypted = dataDecrypted + keyEnglish[keyDecrypt.index(k)]
+                        is_found = True
+        else:
+            dataDecrypted = dataDecrypted + c
     return dataDecrypted
 
+with open("dataEncoded.txt", "r") as f:
+    data = "".join(c for c in f.readlines() if c != "\n")
 
-print(decrypt("asdafhedjwandseifhbjnwj", "qwertyuiopasdfghjklzxcvbnm"))
+print(decrypt(data, "qwertyuiopasdfghjklzxcvbnm"))
