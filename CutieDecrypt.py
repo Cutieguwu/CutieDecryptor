@@ -39,10 +39,10 @@ def decrypt(dataEncoded: str, keyDecrypt: str):
     return dataDecrypted
 
 with open("dataEncoded.txt", "r") as f:
-    data = "".join(c for c in f.readlines() if c != "\n")
+    data = "".join(c for c in f.read() if c != "\n")
 
 with open("key.txt", "r") as f:
-    key = "".join(c for c in f.realines() if c != "\n")
+    key = "".join(c for c in f.read() if c != "\n")
 
 key = "qwertyuiopasdfghjklzxcvbnm"                                                      # Temporary faux testing key.
 
