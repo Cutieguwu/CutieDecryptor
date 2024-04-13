@@ -11,19 +11,17 @@
 #
 # @Script: CutieDecrypt.py
 # @Date Created: 10 Apr, 2024
-# @Last Modified: 11 Apr, 2024
+# @Last Modified: 13 Apr, 2024
 # @Last Modified by: Cutieguwu | Olivia Brooks
 # ----------------------------------------------------------
 
-def decrypt(dataEncoded: str, keyDecrypt: str):
+def decrypt(dataEncoded: str, keyDecrypt: str, keyEnglish: str):
     """
     Decrypts a string encoded using a substitution cypher based on the provided key.\n
     Characters closer to index 0 in `key` are more common in the English language.
     """
 
     dataDecrypted = ""
-
-    keyEnglish = "etaoinshrdlcumwfgypbvkjxqz"                                           # Lewand's order of english characters; most to least common.
 
     for c in dataEncoded:
         is_found = False
@@ -44,6 +42,7 @@ with open("dataEncoded.txt", "r") as f:
 with open("key.txt", "r") as f:
     key = "".join(c for c in f.read() if c != "\n")
 
-key = "qwertyuiopasdfghjklzxcvbnm"                                                      # Temporary faux testing key.
+key = "qwertyuiopasdfghjklzxcvbnm"                                                      # Temporary - Faux testing key.
+english = "etaoinshrdlcumwfgypbvkjxqz"                                                  # Temporary - Lewand's order of english characters; most to least common.
 
-print(decrypt(data, key))
+print(decrypt(data, key, english))
