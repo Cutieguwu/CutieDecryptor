@@ -29,7 +29,7 @@ def order(text:str):
 
         if character.isalpha():
 
-            
+            pass
 
 with open("dataReference.txt", "r") as f:
     dataLanguage = f.read()
