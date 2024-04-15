@@ -36,7 +36,7 @@ def decrypt(dataEncoded: str, keyDecrypt: str, keyEnglish: str):
             dataDecrypted = dataDecrypted + c
     return dataDecrypted
 
-with open("dataEncoded.txt", "r") as f:
+with open("dataEncoded19.ENC", "r") as f:
     data = "".join(c for c in f.read() if c != "\n")
 
 with open("key.txt", "r") as f:
