@@ -20,7 +20,21 @@
 #
 # ----------------------------------------------------------
 
-with open("dataReference.txt", "r") as f:
-    data = f.read()
+def parse(dataReference, dataEncoded):
+    return order(dataReference), order(dataEncoded)
 
-":"
+def order(text:str):
+    
+    for character in text:
+
+        if character.isalpha():
+
+            
+
+with open("dataReference.txt", "r") as f:
+    dataLanguage = f.read()
+
+with open("dataEncoded19.ENC", "r") as f:
+    dataEncoded = f.read()
+
+parse(dataLanguage, dataEncoded)
