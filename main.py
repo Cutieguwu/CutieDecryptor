@@ -11,13 +11,13 @@
 #
 # @Script: main.py
 # @Date Created: 10 Apr, 2024
-# @Last Modified: 10 Apr, 2024
+# @Last Modified: 15 Apr, 2024
 # @Last Modified by: Cutieguwu | Olivia Brooks
 # ----------------------------------------------------------
 
 import CutieDecrypt, CutieParser
 
-with open("dataEncoded19.ENC", "r") as f:
+with open(input("Enter path of encrypted file relative to script execution point: "), "r") as f:
     dataEncoded = "".join(c for c in f.read() if c != "\n")
 
 with open("key.txt", "r") as f:
