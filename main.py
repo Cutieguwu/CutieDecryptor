@@ -17,3 +17,12 @@
 
 import CutieDecrypt, CutieParser
 
+with open("dataEncoded19.ENC", "r") as f:
+    dataEncoded = "".join(c for c in f.read() if c != "\n")
+
+with open("key.txt", "r") as f:
+    dataReference = "".join(c for c in f.read() if c != "\n")
+
+keys = CutieParser.parse(dataReference, dataEncoded)
+
+print(CutieDecrypt.decrypt(dataEncoded, keys[0], keys[1]))
