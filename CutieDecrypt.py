@@ -11,38 +11,44 @@
 #
 # @Script: CutieDecrypt.py
 # @Date Created: 10 Apr, 2024
-# @Last Modified: 13 Apr, 2024
+# @Last Modified: 15 Apr, 2024
 # @Last Modified by: Cutieguwu | Olivia Brooks
 # ----------------------------------------------------------
 
-def decrypt(dataEncoded: str, keyDecrypt: str, keyEnglish: str):
+def decrypt(dataEncoded: str, keyDecrypt: str, keyLanguage: str="etaoinshrdlcumwfgypbvkjxqz".upper()):
     """
     Decrypts a string encoded using a substitution cypher based on the provided key.\n
     Characters closer to index 0 in `key` are more common in the English language.
+    Falls back on Lewand's order of English characters, most to least common, if no `keyLanguage` provided.
     """
 
     dataDecrypted = ""
 
-    for c in dataEncoded:
+    for c in dataEncoded:                                                               # Decrypt each character.
         is_found = False
 
-        if c != " ":
+        if c in keyDecrypt:                                                             # Attempt to decrypt each character.
             while not is_found:
                 for k in keyDecrypt:
                     if c == k:                                                          # Character found in decryption key.
-                        dataDecrypted = dataDecrypted + keyEnglish[keyDecrypt.index(k)]
+                        dataDecrypted = dataDecrypted + keyLanguage[keyDecrypt.index(k)]
                         is_found = True
-        else:
+        else:                                                                           # Failed to decrypt a character, passing and leaving character as is.
             dataDecrypted = dataDecrypted + c
+
     return dataDecrypted
+
+
+# Code hereon is for testing purposes only. Please use main.py for general use.
 
 with open("dataEncoded19.ENC", "r") as f:
     data = "".join(c for c in f.read() if c != "\n")
 
-with open("key.txt", "r") as f:
+"""
+with open("keyEnglish.txt", "r") as f:
     key = "".join(c for c in f.read() if c != "\n")
-
+"""
+ 
 key = "qwertyuiopasdfghjklzxcvbnm"                                                      # Temporary - Faux testing key.
-english = "etaoinshrdlcumwfgypbvkjxqz"                                                  # Temporary - Lewand's order of english characters; most to least common.
 
-print(decrypt(data, key, english))
+print(decrypt(data, key))
