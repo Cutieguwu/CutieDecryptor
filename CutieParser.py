@@ -20,6 +20,13 @@
 #
 # ----------------------------------------------------------
 
+from os import path
+
+execDir = path.dirname(__file__)
+
+dataLanguage = []
+dataEncoded = []
+
 def parse(dataReference, dataEncoded):
     return order(dataReference), order(dataEncoded)
 
@@ -31,10 +38,19 @@ def order(text:str):
 
             pass
 
-with open("dataReference.txt", "r") as f:
-    dataLanguage = f.read()
+with open(execDir + "\\dataReference.txt", "r") as f:
+    while True:
+        dataLanguageChar = f.read(1).strip()
 
-with open("dataEncoded19.ENC", "r") as f:
-    dataEncoded = f.read()
+        if dataLanguageChar.isalpha():
+            if dataLanguageChar.lower() not in dataLanguage:
+                dataLanguage.append(dataLanguageChar.lower())
 
-parse(dataLanguage, dataEncoded)
+        if dataLanguageChar == "~":
+            print (dataLanguage)
+            break
+
+with open(execDir + "\\dataEncoded19.ENC", "r") as f:
+    dataEncodedChar = f.read()
+
+parse(dataLanguageChar, dataEncodedChar)
