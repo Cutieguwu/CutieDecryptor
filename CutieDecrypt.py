@@ -15,11 +15,10 @@
 # @Last Modified by: Cutieguwu | Olivia Brooks
 # ----------------------------------------------------------
 
-def decrypt(dataEncoded: str, keyDecrypt: str, keyLanguage: str="etaoinshrdlcumwfgypbvkjxqz".upper()):
+def decrypt(dataEncoded: str, keyDecrypt: str, keyLanguage: str="EATBISNPHRLQYCDUOMVWKFXGZJ".upper()):
     """
     Decrypts a string encoded using a substitution cypher based on the provided key.\n
     Characters closer to index 0 in `key` are more common in the English language.
-    Falls back on Lewand's order of English characters, most to least common, if no `keyLanguage` provided.
     """
 
     dataDecrypted = ""
@@ -38,17 +37,13 @@ def decrypt(dataEncoded: str, keyDecrypt: str, keyLanguage: str="etaoinshrdlcumw
 
     return dataDecrypted
 
+with open("/home/beartech-server/CutieDecryptor/dataEncoded19.ENC", "r") as f:
+    data = f.read()
 
-# Code hereon is for testing purposes only. Please use main.py for general use.
+key = "BWIYFMPARQNZXCJKGTLVHOESDU"                                                      # Temporary - Faux testing key.
 
-with open("dataEncoded19.ENC", "r") as f:
-    data = "".join(c for c in f.read() if c != "\n")
-
-"""
-with open("keyEnglish.txt", "r") as f:
-    key = "".join(c for c in f.read() if c != "\n")
-"""
- 
-key = "qwertyuiopasdfghjklzxcvbnm"                                                      # Temporary - Faux testing key.
-
-print(decrypt(data, key))
+print(decrypt(
+    data,
+    "WYNJBOSRFUHVTPCASGMIKLYEXD",
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+))
