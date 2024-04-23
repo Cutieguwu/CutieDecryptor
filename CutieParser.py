@@ -51,6 +51,15 @@ with open(execDir + "\\dataReference.txt", "r") as f:
             break
 
 with open(execDir + "\\dataEncoded19.ENC", "r") as f:
-    dataEncodedChar = f.read()
+    while True:
+        dataEncodedChar = f.read(1).strip()
+
+        if dataEncodedChar.isalpha():
+            if dataEncodedChar.lower() not in dataEncoded:
+                dataEncoded.append(dataEncodedChar.lower())
+
+        if dataEncodedChar == "~":
+            print (dataEncoded)
+            break
 
 parse(dataLanguageChar, dataEncodedChar)
