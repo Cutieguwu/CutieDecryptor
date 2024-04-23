@@ -11,7 +11,7 @@
 #
 # @Script: CutieParser.py
 # @Date Created: 10 Apr, 2024
-# @Last Modified: 15 Apr, 2024
+# @Last Modified: 11 Apr, 2024
 # @Last Modified by: Cutieguwu | Olivia Brooks
 
 # ----------------------------------------------------------
@@ -20,7 +20,6 @@
 #
 # ----------------------------------------------------------
 
-<<<<<<< Updated upstream
 from os import path
 
 execDir = path.dirname(__file__)
@@ -30,9 +29,6 @@ dataEncoded = []
 
 print ("Start")
 
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
 def parse(dataReference, dataEncoded):
     return order(dataReference), order(dataEncoded)
 
@@ -52,7 +48,6 @@ with open(execDir + "\\dataReference.txt", "r") as f:
             if dataLanguageChar.lower() not in dataLanguage:
                 dataLanguage.append(dataLanguageChar.lower())
 
-<<<<<<< Updated upstream
         if dataLanguageChar == "~":
             print (dataLanguage)
             break
@@ -70,10 +65,3 @@ with open(execDir + "\\dataEncoded19.ENC", "r") as f:
             break
 
 parse(dataLanguageChar, dataEncodedChar)
-=======
-parse(dataLanguage, dataEncoded)
-=======
-with open("dataReference.txt", "r") as f:
-    data = f.read()
->>>>>>> origin/Decryption-script
->>>>>>> Stashed changes
