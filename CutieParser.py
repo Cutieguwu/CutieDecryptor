@@ -27,6 +27,8 @@ execDir = path.dirname(__file__)
 dataLanguage = []
 dataEncoded = []
 
+print ("Start")
+
 def parse(dataReference, dataEncoded):
     return order(dataReference), order(dataEncoded)
 
