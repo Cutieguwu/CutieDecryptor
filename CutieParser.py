@@ -11,7 +11,7 @@
 #
 # @Script: CutieParser.py
 # @Date Created: 10 Apr, 2024
-# @Last Modified: 11 Apr, 2024
+# @Last Modified: 23 Apr, 2024
 # @Last Modified by: Cutieguwu | Olivia Brooks
 
 # ----------------------------------------------------------
@@ -26,8 +26,6 @@ execDir = path.dirname(__file__)
 
 dataLanguage = []
 dataEncoded = []
-
-print ("Start")
 
 def parse(dataReference, dataEncoded):
     return order(dataReference), order(dataEncoded)
