@@ -24,42 +24,59 @@ from os import path
 
 execDir = path.dirname(__file__)
 
-dataLanguage = []
-dataEncoded = []
 
 def parse(dataReference, dataEncoded):
     return order(dataReference), order(dataEncoded)
 
-def order(text:str):
-    
-    for character in text:
+def order(file):
 
-        if character.isalpha():
+    dataLanguage = []
+    amount = []
+    index = 0
 
-            pass
+    with open(execDir + file, "r") as f:
+        while True:
+            fileChar = f.read(1).strip()
 
-with open(execDir + "\\dataReference.txt", "r") as f:
-    while True:
-        dataLanguageChar = f.read(1).strip()
+            if fileChar.isalpha():
+                if fileChar.lower() not in dataLanguage:
+                    dataLanguage.append(fileChar.lower())
+                    amount.append(1)
 
-        if dataLanguageChar.isalpha():
-            if dataLanguageChar.lower() not in dataLanguage:
-                dataLanguage.append(dataLanguageChar.lower())
+                else:
+                    index = 0
+                    while True:
+                        if dataLanguage[index] == fileChar.lower():
+                            amount[index] = amount[index] + 1
+                            break
 
-        if dataLanguageChar == "~":
-            print (dataLanguage)
-            break
+                        else:
+                            index = index + 1
 
-with open(execDir + "\\dataEncoded19.ENC", "r") as f:
-    while True:
-        dataEncodedChar = f.read(1).strip()
+            if fileChar == "~":
+                index = 0
+                Finished = False
 
-        if dataEncodedChar.isalpha():
-            if dataEncodedChar.lower() not in dataEncoded:
-                dataEncoded.append(dataEncodedChar.lower())
+                while not Finished:
+                    Finished = True
 
-        if dataEncodedChar == "~":
-            print (dataEncoded)
-            break
+                    for index in range(0, len(amount) - 1):
+                        temp = amount[index]
+                        tempLetter = dataLanguage[index]
 
-parse(dataLanguageChar, dataEncodedChar)
+                        if temp < amount[index + 1]:
+                            amount[index] = amount[index + 1]
+                            amount[index + 1] = temp
+
+                            dataLanguage[index] = dataLanguage[index + 1]
+                            dataLanguage[index + 1] = tempLetter
+
+                            Finished = False
+
+                        if index == len(amount):
+                            index = 0
+
+                return dataLanguage, amount
+
+print (order("\\dataReference.txt"), "\n")
+print (order("\\dataEncoded19.ENC"), "\n")
