@@ -11,8 +11,8 @@
 #
 # @Script: CutieParser.py
 # @Date Created: 10 Apr, 2024
-# @Last Modified: 23 Apr, 2024
-# @Last Modified by: Cutieguwu | Olivia Brooks
+# @Last Modified: 25 Apr, 2024
+# @Last Modified by: JellieJayde | Jayde Paquette
 
 # ----------------------------------------------------------
 #
@@ -24,29 +24,26 @@ from os import path
 
 execDir = path.dirname(__file__)
 
-
-def parse(dataReference, dataEncoded):
-    return order(dataReference), order(dataEncoded)
-
 def order(file):
 
     dataLanguage = []
     amount = []
     index = 0
+    sortedString = ""
 
     with open(execDir + file, "r") as f:
         while True:
             fileChar = f.read(1).strip()
 
             if fileChar.isalpha():
-                if fileChar.lower() not in dataLanguage:
-                    dataLanguage.append(fileChar.lower())
+                if fileChar.upper() not in dataLanguage:
+                    dataLanguage.append(fileChar.upper())
                     amount.append(1)
 
                 else:
                     index = 0
                     while True:
-                        if dataLanguage[index] == fileChar.lower():
+                        if dataLanguage[index] == fileChar.upper():
                             amount[index] = amount[index] + 1
                             break
 
@@ -75,8 +72,12 @@ def order(file):
 
                         if index == len(amount):
                             index = 0
+                    
+                for i in dataLanguage:
+                    sortedString = sortedString + i
 
-                return dataLanguage, amount
+
+                return sortedString
 
 print (order("\\dataReference.txt"), "\n")
 print (order("\\dataEncoded19.ENC"), "\n")
