@@ -40,10 +40,6 @@ def decrypt(dataEncoded: str, keyDecrypt: str, keyLanguage: str="EATBISNPHRLQYCD
 with open("/home/beartech-server/CutieDecryptor/dataEncoded19.ENC", "r") as f:
     data = f.read()
 
-key = "BWIYFMPARQNZXCJKGTLVHOESDU"                                                      # Temporary - Faux testing key.
-
-print(decrypt(
-    data,
-    "WYNJBOSRFUHVTPCASGMIKLYEXD",
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-))
+print(decrypt(data,
+              "BWIAFYPMRNZQCXKJLGTVHOSEUD",
+              "EATSINORHLCDMUPFYGWBVKXJZQ"))
