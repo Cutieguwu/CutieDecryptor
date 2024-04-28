@@ -37,7 +37,7 @@ def decrypt(dataEncoded: str, keyDecrypt: str, keyLanguage: str="EATBISNPHRLQYCD
 
     return dataDecrypted
 
-with open("/home/beartech-server/CutieDecryptor/dataEncoded19.ENC", "r") as f:
+with open("/mnt/EnderChest/beartech/Workspace/CutieDecryptor/dataEncoded19.ENC", "r") as f:
     data = f.read()
 
 print(decrypt(data,
