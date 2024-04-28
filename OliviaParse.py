@@ -11,7 +11,7 @@
 #
 # @Script: CutieDecrypt.py
 # @Date Created: 22 Apr, 2024
-# @Last Modified: 22 Apr, 2024
+# @Last Modified: 28 Apr, 2024
 # @Last Modified by: Cutieguwu | Olivia Brooks
 # ----------------------------------------------------------
 
@@ -53,8 +53,8 @@ def parse(data):
                 keyInverse = keyInverse + character
                 charactersWritten = charactersWritten + 1
 
-    # Need to invert list.
 
+    # Invert List
     key = ""
 
     for index in range(0, len(keyInverse)):
@@ -64,8 +64,5 @@ def parse(data):
 
     return key
 
-keyReference = parse(dataReference)
-keyEncoded = parse(dataEncoded)
-
-print(keyReference)
-print(keyEncoded)
+print(parse(dataReference))
+print(parse(dataEncoded))
