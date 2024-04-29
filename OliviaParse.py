@@ -11,17 +11,22 @@
 #
 # @Script: CutieDecrypt.py
 # @Date Created: 22 Apr, 2024
-# @Last Modified: 22 Apr, 2024
+# @Last Modified: 28 Apr, 2024
 # @Last Modified by: Cutieguwu | Olivia Brooks
 # ----------------------------------------------------------
 
-with open("/home/beartech-server/CutieDecryptor/dataReference.txt", "r") as f:
+# Fetch English language reference text and encoded text.
+with open("/mnt/EnderChest/beartech/Workspace/CutieDecryptor/dataReference.txt", "r") as f:
     dataReference = f.read()
 
-with open("/home/beartech-server/CutieDecryptor/dataEncoded19.ENC", "r") as f:
+with open("/mnt/EnderChest/beartech/Workspace/CutieDecryptor/dataEncoded19.ENC", "r") as f:
     dataEncoded = f.read()
 
 def parse(data):
+    """
+    Parses a string and orders the characters present within from most to least frequent.
+    """
+
     characters = {}
 
     for character in data:
@@ -32,6 +37,7 @@ def parse(data):
             except KeyError:
                 characters[character] = 1                                               # Make character position.
 
+    # Get all the frequncies present to speed up the reorganisation.
     frequencies = []
 
     for character, frequency in characters.items():
@@ -40,21 +46,18 @@ def parse(data):
             else:
                 frequencies.append(frequency)
 
-    print(characters)
-
     keyInverse = ""
     charactersWritten = 0
     index = 0
 
-    while charactersWritten < len(characters):
-        index = index + 1
-        for character, relativeIndex in characters.items():
-            if relativeIndex == index:
-                keyInverse = keyInverse + character
-                charactersWritten = charactersWritten + 1
+    while charactersWritten < len(characters):                                          # Align each character from least to greatest.
+        for frequency in frequencies:
+            for character, characterFreq in characters.items():
+                if characterFreq == frequency:
+                    keyInverse = keyInverse + character                                 # Not nessecarily the most efficient alignment as the final key
+                    charactersWritten = charactersWritten + 1                           # could be made straight away instead of the inversion following.
 
-    # Need to invert list.
-
+    # Invert List
     key = ""
 
     for index in range(0, len(keyInverse)):
@@ -64,8 +67,5 @@ def parse(data):
 
     return key
 
-keyReference = parse(dataReference)
-keyEncoded = parse(dataEncoded)
-
-print(keyReference)
-print(keyEncoded)
+print(parse(dataReference))
+print(parse(dataEncoded))
