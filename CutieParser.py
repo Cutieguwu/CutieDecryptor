@@ -11,7 +11,7 @@
 #
 # @Script: CutieParser.py
 # @Date Created: 10 Apr, 2024
-# @Last Modified: 25 Apr, 2024
+# @Last Modified: 29 Apr, 2024
 # @Last Modified by: JellieJayde | Jayde Paquette
 
 # ----------------------------------------------------------
